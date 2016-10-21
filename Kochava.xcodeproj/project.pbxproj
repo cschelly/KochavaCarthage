@@ -16,6 +16,7 @@
 		F3167E7D1DBA2B7A009D9A86 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3167E7C1DBA2B7A009D9A86 /* SystemConfiguration.framework */; };
 		F3167E801DBA2BD8009D9A86 /* libTrackAndAd.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F3167E7E1DBA2BD8009D9A86 /* libTrackAndAd.a */; };
 		F3167E811DBA2BD8009D9A86 /* TrackAndAd.h in Headers */ = {isa = PBXBuildFile; fileRef = F3167E7F1DBA2BD8009D9A86 /* TrackAndAd.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F3167ED91DBA50DE009D9A86 /* Kochava.m in Sources */ = {isa = PBXBuildFile; fileRef = F3167ED81DBA50DE009D9A86 /* Kochava.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		F3167E7C1DBA2B7A009D9A86 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		F3167E7E1DBA2BD8009D9A86 /* libTrackAndAd.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTrackAndAd.a; sourceTree = "<group>"; };
 		F3167E7F1DBA2BD8009D9A86 /* TrackAndAd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrackAndAd.h; sourceTree = "<group>"; };
+		F3167ED81DBA50DE009D9A86 /* Kochava.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Kochava.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +76,7 @@
 				F3167E7F1DBA2BD8009D9A86 /* TrackAndAd.h */,
 				F3167E691DBA2AEF009D9A86 /* Kochava.h */,
 				F3167E6A1DBA2AEF009D9A86 /* Info.plist */,
+				F3167ED81DBA50DE009D9A86 /* Kochava.m */,
 			);
 			path = Kochava;
 			sourceTree = "<group>";
@@ -171,6 +174,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F3167ED91DBA50DE009D9A86 /* Kochava.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
