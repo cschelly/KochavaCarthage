@@ -6,7 +6,7 @@
 //  Copyright © 2016 Snupps. All rights reserved.
 //
 
-#import "TrackAndAd.h"
+#import "KochavaTracker.h"
 
 @interface KochavaTracker (Dummy) @end
 @implementation KochavaTracker (Dummy) @end

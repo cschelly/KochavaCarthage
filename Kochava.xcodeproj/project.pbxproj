@@ -14,9 +14,10 @@
 		F3167E791DBA2B6E009D9A86 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3167E781DBA2B6E009D9A86 /* iAd.framework */; };
 		F3167E7B1DBA2B75009D9A86 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3167E7A1DBA2B75009D9A86 /* CoreLocation.framework */; };
 		F3167E7D1DBA2B7A009D9A86 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3167E7C1DBA2B7A009D9A86 /* SystemConfiguration.framework */; };
-		F3167E801DBA2BD8009D9A86 /* libTrackAndAd.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F3167E7E1DBA2BD8009D9A86 /* libTrackAndAd.a */; };
-		F3167E811DBA2BD8009D9A86 /* TrackAndAd.h in Headers */ = {isa = PBXBuildFile; fileRef = F3167E7F1DBA2BD8009D9A86 /* TrackAndAd.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F3167ED91DBA50DE009D9A86 /* Kochava.m in Sources */ = {isa = PBXBuildFile; fileRef = F3167ED81DBA50DE009D9A86 /* Kochava.m */; };
+		F325F6A11F94C1A700FB283A /* KochavaTracker.h in Headers */ = {isa = PBXBuildFile; fileRef = F325F69C1F94C18200FB283A /* KochavaTracker.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F325F6A21F94C1A700FB283A /* KochavaEvent.h in Headers */ = {isa = PBXBuildFile; fileRef = F325F69E1F94C18200FB283A /* KochavaEvent.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F325F6A31F94C1A700FB283A /* libKochavaTrackeriOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F325F6A01F94C18200FB283A /* libKochavaTrackeriOS.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,9 +30,10 @@
 		F3167E781DBA2B6E009D9A86 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 		F3167E7A1DBA2B75009D9A86 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		F3167E7C1DBA2B7A009D9A86 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		F3167E7E1DBA2BD8009D9A86 /* libTrackAndAd.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTrackAndAd.a; sourceTree = "<group>"; };
-		F3167E7F1DBA2BD8009D9A86 /* TrackAndAd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrackAndAd.h; sourceTree = "<group>"; };
 		F3167ED81DBA50DE009D9A86 /* Kochava.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Kochava.m; sourceTree = "<group>"; };
+		F325F69C1F94C18200FB283A /* KochavaTracker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KochavaTracker.h; sourceTree = "<group>"; };
+		F325F69E1F94C18200FB283A /* KochavaEvent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KochavaEvent.h; sourceTree = "<group>"; };
+		F325F6A01F94C18200FB283A /* libKochavaTrackeriOS.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libKochavaTrackeriOS.a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,11 +41,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F325F6A31F94C1A700FB283A /* libKochavaTrackeriOS.a in Frameworks */,
 				F3167E7D1DBA2B7A009D9A86 /* SystemConfiguration.framework in Frameworks */,
 				F3167E7B1DBA2B75009D9A86 /* CoreLocation.framework in Frameworks */,
 				F3167E791DBA2B6E009D9A86 /* iAd.framework in Frameworks */,
 				F3167E771DBA2B6B009D9A86 /* AdSupport.framework in Frameworks */,
-				F3167E801DBA2BD8009D9A86 /* libTrackAndAd.a in Frameworks */,
 				F3167E751DBA2B65009D9A86 /* Foundation.framework in Frameworks */,
 				F3167E731DBA2B61009D9A86 /* UIKit.framework in Frameworks */,
 			);
@@ -72,8 +74,8 @@
 		F3167E681DBA2AEF009D9A86 /* Kochava */ = {
 			isa = PBXGroup;
 			children = (
-				F3167E7E1DBA2BD8009D9A86 /* libTrackAndAd.a */,
-				F3167E7F1DBA2BD8009D9A86 /* TrackAndAd.h */,
+				F325F69B1F94C18200FB283A /* Classes */,
+				F325F69F1F94C18200FB283A /* Libraries */,
 				F3167E691DBA2AEF009D9A86 /* Kochava.h */,
 				F3167E6A1DBA2AEF009D9A86 /* Info.plist */,
 				F3167ED81DBA50DE009D9A86 /* Kochava.m */,
@@ -94,6 +96,23 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		F325F69B1F94C18200FB283A /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				F325F69C1F94C18200FB283A /* KochavaTracker.h */,
+				F325F69E1F94C18200FB283A /* KochavaEvent.h */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		F325F69F1F94C18200FB283A /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				F325F6A01F94C18200FB283A /* libKochavaTrackeriOS.a */,
+			);
+			path = Libraries;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -101,8 +120,9 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F325F6A11F94C1A700FB283A /* KochavaTracker.h in Headers */,
 				F3167E6B1DBA2AEF009D9A86 /* Kochava.h in Headers */,
-				F3167E811DBA2BD8009D9A86 /* TrackAndAd.h in Headers */,
+				F325F6A21F94C1A700FB283A /* KochavaEvent.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -291,8 +311,9 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Kochava",
+					"$(PROJECT_DIR)/Kochava/Libraries",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.snupps.Kochava;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kochava.KochavaKochavaCarthage;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -312,8 +333,9 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Kochava",
+					"$(PROJECT_DIR)/Kochava/Libraries",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.snupps.Kochava;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kochava.KochavaKochavaCarthage;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
