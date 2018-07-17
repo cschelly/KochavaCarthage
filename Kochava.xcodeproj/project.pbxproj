@@ -15,9 +15,14 @@
 		F3167E7B1DBA2B75009D9A86 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3167E7A1DBA2B75009D9A86 /* CoreLocation.framework */; };
 		F3167E7D1DBA2B7A009D9A86 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3167E7C1DBA2B7A009D9A86 /* SystemConfiguration.framework */; };
 		F3167ED91DBA50DE009D9A86 /* Kochava.m in Sources */ = {isa = PBXBuildFile; fileRef = F3167ED81DBA50DE009D9A86 /* Kochava.m */; };
-		F325F6A11F94C1A700FB283A /* KochavaTracker.h in Headers */ = {isa = PBXBuildFile; fileRef = F325F69C1F94C18200FB283A /* KochavaTracker.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		F325F6A21F94C1A700FB283A /* KochavaEvent.h in Headers */ = {isa = PBXBuildFile; fileRef = F325F69E1F94C18200FB283A /* KochavaEvent.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		F325F6A31F94C1A700FB283A /* libKochavaTrackeriOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F325F6A01F94C18200FB283A /* libKochavaTrackeriOS.a */; };
+		F3E8B7AE20FE2C9800D20FF0 /* KVAPartner.h in Headers */ = {isa = PBXBuildFile; fileRef = F3E8B7A420FE2C9700D20FF0 /* KVAPartner.h */; };
+		F3E8B7AF20FE2C9800D20FF0 /* KVAAsForContextObjectProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = F3E8B7A520FE2C9700D20FF0 /* KVAAsForContextObjectProtocol.h */; };
+		F3E8B7B020FE2C9800D20FF0 /* KochavaTracker.h in Headers */ = {isa = PBXBuildFile; fileRef = F3E8B7A620FE2C9700D20FF0 /* KochavaTracker.h */; };
+		F3E8B7B220FE2C9800D20FF0 /* KVAConsent.h in Headers */ = {isa = PBXBuildFile; fileRef = F3E8B7A820FE2C9700D20FF0 /* KVAConsent.h */; };
+		F3E8B7B320FE2C9800D20FF0 /* KVAContext.h in Headers */ = {isa = PBXBuildFile; fileRef = F3E8B7A920FE2C9700D20FF0 /* KVAContext.h */; };
+		F3E8B7B420FE2C9800D20FF0 /* KochavaEvent.h in Headers */ = {isa = PBXBuildFile; fileRef = F3E8B7AA20FE2C9700D20FF0 /* KochavaEvent.h */; };
+		F3E8B7B520FE2C9800D20FF0 /* KVAFromObjectProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = F3E8B7AB20FE2C9700D20FF0 /* KVAFromObjectProtocol.h */; };
+		F3E8B7B620FE2C9800D20FF0 /* libKochavaTrackeriOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F3E8B7AD20FE2C9800D20FF0 /* libKochavaTrackeriOS.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,9 +36,14 @@
 		F3167E7A1DBA2B75009D9A86 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		F3167E7C1DBA2B7A009D9A86 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		F3167ED81DBA50DE009D9A86 /* Kochava.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Kochava.m; sourceTree = "<group>"; };
-		F325F69C1F94C18200FB283A /* KochavaTracker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KochavaTracker.h; sourceTree = "<group>"; };
-		F325F69E1F94C18200FB283A /* KochavaEvent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KochavaEvent.h; sourceTree = "<group>"; };
-		F325F6A01F94C18200FB283A /* libKochavaTrackeriOS.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libKochavaTrackeriOS.a; sourceTree = "<group>"; };
+		F3E8B7A420FE2C9700D20FF0 /* KVAPartner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KVAPartner.h; sourceTree = "<group>"; };
+		F3E8B7A520FE2C9700D20FF0 /* KVAAsForContextObjectProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KVAAsForContextObjectProtocol.h; sourceTree = "<group>"; };
+		F3E8B7A620FE2C9700D20FF0 /* KochavaTracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KochavaTracker.h; sourceTree = "<group>"; };
+		F3E8B7A820FE2C9700D20FF0 /* KVAConsent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KVAConsent.h; sourceTree = "<group>"; };
+		F3E8B7A920FE2C9700D20FF0 /* KVAContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KVAContext.h; sourceTree = "<group>"; };
+		F3E8B7AA20FE2C9700D20FF0 /* KochavaEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KochavaEvent.h; sourceTree = "<group>"; };
+		F3E8B7AB20FE2C9700D20FF0 /* KVAFromObjectProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KVAFromObjectProtocol.h; sourceTree = "<group>"; };
+		F3E8B7AD20FE2C9800D20FF0 /* libKochavaTrackeriOS.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libKochavaTrackeriOS.a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,8 +51,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F325F6A31F94C1A700FB283A /* libKochavaTrackeriOS.a in Frameworks */,
 				F3167E7D1DBA2B7A009D9A86 /* SystemConfiguration.framework in Frameworks */,
+				F3E8B7B620FE2C9800D20FF0 /* libKochavaTrackeriOS.a in Frameworks */,
 				F3167E7B1DBA2B75009D9A86 /* CoreLocation.framework in Frameworks */,
 				F3167E791DBA2B6E009D9A86 /* iAd.framework in Frameworks */,
 				F3167E771DBA2B6B009D9A86 /* AdSupport.framework in Frameworks */,
@@ -74,8 +84,8 @@
 		F3167E681DBA2AEF009D9A86 /* Kochava */ = {
 			isa = PBXGroup;
 			children = (
-				F325F69B1F94C18200FB283A /* Classes */,
-				F325F69F1F94C18200FB283A /* Libraries */,
+				F3E8B7A320FE2C9700D20FF0 /* Classes */,
+				F3E8B7AC20FE2C9800D20FF0 /* Libraries */,
 				F3167E691DBA2AEF009D9A86 /* Kochava.h */,
 				F3167E6A1DBA2AEF009D9A86 /* Info.plist */,
 				F3167ED81DBA50DE009D9A86 /* Kochava.m */,
@@ -96,19 +106,24 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		F325F69B1F94C18200FB283A /* Classes */ = {
+		F3E8B7A320FE2C9700D20FF0 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				F325F69C1F94C18200FB283A /* KochavaTracker.h */,
-				F325F69E1F94C18200FB283A /* KochavaEvent.h */,
+				F3E8B7A420FE2C9700D20FF0 /* KVAPartner.h */,
+				F3E8B7A520FE2C9700D20FF0 /* KVAAsForContextObjectProtocol.h */,
+				F3E8B7A620FE2C9700D20FF0 /* KochavaTracker.h */,
+				F3E8B7A820FE2C9700D20FF0 /* KVAConsent.h */,
+				F3E8B7A920FE2C9700D20FF0 /* KVAContext.h */,
+				F3E8B7AA20FE2C9700D20FF0 /* KochavaEvent.h */,
+				F3E8B7AB20FE2C9700D20FF0 /* KVAFromObjectProtocol.h */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
 		};
-		F325F69F1F94C18200FB283A /* Libraries */ = {
+		F3E8B7AC20FE2C9800D20FF0 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
-				F325F6A01F94C18200FB283A /* libKochavaTrackeriOS.a */,
+				F3E8B7AD20FE2C9800D20FF0 /* libKochavaTrackeriOS.a */,
 			);
 			path = Libraries;
 			sourceTree = "<group>";
@@ -120,9 +135,14 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F325F6A11F94C1A700FB283A /* KochavaTracker.h in Headers */,
+				F3E8B7B220FE2C9800D20FF0 /* KVAConsent.h in Headers */,
+				F3E8B7AE20FE2C9800D20FF0 /* KVAPartner.h in Headers */,
+				F3E8B7AF20FE2C9800D20FF0 /* KVAAsForContextObjectProtocol.h in Headers */,
 				F3167E6B1DBA2AEF009D9A86 /* Kochava.h in Headers */,
-				F325F6A21F94C1A700FB283A /* KochavaEvent.h in Headers */,
+				F3E8B7B520FE2C9800D20FF0 /* KVAFromObjectProtocol.h in Headers */,
+				F3E8B7B020FE2C9800D20FF0 /* KochavaTracker.h in Headers */,
+				F3E8B7B320FE2C9800D20FF0 /* KVAContext.h in Headers */,
+				F3E8B7B420FE2C9800D20FF0 /* KochavaEvent.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -153,7 +173,7 @@
 		F3167E5D1DBA2AEF009D9A86 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = Snupps;
 				TargetAttributes = {
 					F3167E651DBA2AEF009D9A86 = {
@@ -210,15 +230,24 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -261,15 +290,24 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
