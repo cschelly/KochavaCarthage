@@ -92,17 +92,6 @@
 
 
 
-/*!
- @method - Kochava_attributionResult:
- 
- @brief A method which is called when attribution has been requested and returned to the app.
- 
- @discussion This method has been deprecated and is scheduled to be permanently removed in v4.0 of this SDK.  Please instead implement tracker:didRetrieveAttributionDictionary:.
- */
-- (void)Kochava_attributionResult:(nullable NSDictionary *)attributionResult KOCHAVA_DEPRECATED("Please instead use tracker:didRetrieveAttributionDictionary:");
-
-
-
 @end
 
 
@@ -164,9 +153,9 @@
 /*!
  @constant kKVAParamAppGUIDStringKey
  
- @brief A constant to use for the key when passing the parameter to the tracker to set the tracker app id.
+ @brief A constant to be used as a key in a key/value pair, where the corresponding value is a Kochava App GUID (String).
  
- @discussion The corresponding value should be a String.
+ @discussion A valid Kochava App GUID String.  The Kochava Server assigns a globally-unique identifier for each app.  This identifier is used to associate post-install events and other data together.  This parameter is required, and must be provided at the time the tracker is configured.
  */
 extern NSString * _Nonnull const kKVAParamAppGUIDStringKey;
 
@@ -175,11 +164,34 @@ extern NSString * _Nonnull const kKVAParamAppGUIDStringKey;
 /*!
  @constant kKVAParamAppLimitAdTrackingBoolKey
  
- @brief A constant to use for the key when passing the parameter to the tracker to set the limit ad tracking boolean.
+ @brief A constant to be used as a key in a key/value pair, where the corresponding value is a boolean indicating if advertising tracking should be limited.
  
- @discussion The corresponding value should be a boolean wrapped in an NSNumber.
+ @discussion A boolean which when true will limit advertising tracking.  The default state of this feature is false.  This means that by default there is no limit of advertising tracking from the application.  There may still separately be a limit of ad tracking from the operating system, which is a similar but distinct feature of the operating system.  The associated tracker method, and its associated feature, may be used to supplement the operating system feature with application level support.  The app can present the user with a switch-like user interface to “Limit Ad Tracking” similar to the feature provided by the operating system in privacy settings.  When this switch is changed, this method can be used to report the new state.  The purpose of this feature is not to replace the operating system feature, which is ever-present, but to offer another level of privacy which can be integrated within the app’s user interface.
  */
 extern NSString * _Nonnull const kKVAParamAppLimitAdTrackingBoolKey;
+
+
+
+/*!
+ @constant kKVAParamConsentIntelligentManagementBoolKey
+ 
+ @brief A constant to be used as a key in a key/value pair, where the corresponding value is a boolean, wrapped in an NSNumber, indicating if Intelligent Consent Management is enabled.
+ 
+ @discussion The corresponding value should be a boolean wrapped in an NSNumber.  The default is false.  Intelligent Consent Management (ICM) is a feature whereby the SDK will provide information as to when the the requirements for consent have been updated.  When an update occurs, an instance of class KVAConsent can provide a list of partners, as well as the means to know if the host should prompt the user.
+ */
+extern NSString * _Nonnull const kKVAParamConsentIntelligentManagementBoolKey;
+
+
+
+/*!
+ @constant kKVAParamConsentManualManagedRequirementsBoolKey
+ 
+ @brief A constant to be used as a key in a key/value pair, where the corresponding value is a boolean, wrapped in an NSNumber, indicating if the Manual Management of Consent Requirements is enabled.
+ 
+ @discussion The corresponding value should be a boolean wrapped in an NSNumber.  The default is false.  This property is optionally used in conjunction with Intelligent Consent Management (ICM).  By default the requirements for consent are determined automatically by Kochava’s servers.  Setting this parameter to true enables you to manage the requirements for consent yourself manually.  When enabled, it is your responsibility to manually manage of the state of var requiredBool, which you would subsequently set to indicate if consent is required for the region in which the device is currently operating.
+
+ */
+extern NSString * _Nonnull const kKVAParamConsentManualManagedRequirementsBoolKey;
 
 
 
@@ -197,31 +209,20 @@ extern NSString * _Nonnull const kKVAParamCustomIdStringKey KOCHAVA_DEPRECATED("
 /*!
  @constant kKVAParamIdentityLinkDictionaryKey
  
- @brief A constant to use for the key when passing the parameter to the tracker to set the identity link dictionary.
+ @brief A constant to be used as a key in a key/value pair, where the corresponding value is a dictionary providing identity information.
  
- @discussion The corresponding value should be a dictionary.
+ @discussion The corresponding value should be a dictionary containing one or more key/value pairs providing some form of identification.  The key(s) represent a kind of identification and the corresponding value(s) represent an identifying value.  Identity Link provides the opportunity to “link different identities” together.  For example, you may have assigned each user of your app an internal userid which you want to connect to a user’s service identifier.  Using this method, you can send both your internal id and their service identifier and connect them in the Kochava database.  Kochava reports can be output to show additional identity information for devices in the Kochava database so that you can supplement your reports with internal identifiers that are useful to you and your application.
  */
 extern NSString * _Nonnull const kKVAParamIdentityLinkDictionaryKey;
 
 
 
 /*!
- @constant kKVAParamConsentIntelligentManagementBoolKey
- 
- @brief A constant to use for the key when passing the parameter to the tracker to set the intelligent consent management boolean.
- 
- @discussion The corresponding value should be a boolean wrapped in an NSNumber.  The default is false.
- */
-extern NSString * _Nonnull const kKVAParamConsentIntelligentManagementBoolKey;
-
-
-
-/*!
  @constant kKVAParamLogLevelEnumKey
  
- @brief A constant to use for the key when passing the parameter to the tracker to set the log level enum.
+ @brief A constant to be used as a key in a key/value pair, where the corresponding value is an enumeration indicating the types of information to be printed to the log.
  
- @discussion The corresponding value should be an NSString matching one of the defined constants for log levels.
+ @discussion The corresponding value should be an NSString matching one of the defined constants for log levels.  Logging is controlled by two parameters.  The first is kKVAParamLogLevelEnumKey, which specifies the types of information to be printed to the log.  The second is kKVAParamLogMultiLineBoolKey, which specifies whether that information prints in a multi-line or continuous format.
  */
 extern NSString * _Nonnull const kKVAParamLogLevelEnumKey;
 
@@ -230,9 +231,9 @@ extern NSString * _Nonnull const kKVAParamLogLevelEnumKey;
 /*!
  @constant kKVAParamLogMultiLineBoolKey
  
- @brief A constant to use for the key when passing the parameter to the tracker to set the log multi-line boolean.
+ @brief A constant to be used as a key in a key/value pair, where the corresponding value is a boolean indicating if multi-line printing should be used in log entries.
  
- @discussion The corresponding value should be a boolean wrapped in an NSNumber.
+ @discussion A boolean.  A value of true will print log entries in a multi-line format.  A value of false will print continuously, wrapping to the next line when needed.  The default value is true.  Logging is controlled by two parameters.  The first is kKVAParamLogLevelEnumKey, which specifies the types of information to be printed to the log.  The second is kKVAParamLogMultiLineBoolKey, which specifies whether that information prints in a multi-line or continuous format.
  */
 extern NSString * _Nonnull const kKVAParamLogMultiLineBoolKey;
 
@@ -241,11 +242,9 @@ extern NSString * _Nonnull const kKVAParamLogMultiLineBoolKey;
 /*!
  @constant kKVAParamRetrieveAttributionBoolKey
  
- @brief A constant to use for the key when passing the parameter to the tracker to set the retrieve attribution boolean.
+ @brief A constant to be used as a key in a key/value pair, where the corresponding value is a boolean indicating if attribution information should be retrieved from the Kochava Server.
  
- @discussion The corresponding value should be a boolean wrapped in an NSNumber.
- 
-    Important Note:  This should only be done if your app makes use of this information, otherwise it causes needless network communication.  Attribution will performed server-side regardless of the application requesting the results.
+ @discussion The corresponding value should be a boolean wrapped in an NSNumber.  When true this will cause the tracker to retrieve attribution information from the Kochava Server.  The default value is false.  Note:  This should only be done if your app makes use of this information, otherwise it causes needless network communication.  Attribution will be performed server-side regardless of the application requesting the results.  The tracker will retrieve attribution information if the kKVAParamRetrieveAttributionBoolKey parameter is passed with a value of true during its configuration.  It does this usually within about 10 seconds from the initial launch, although it is subject to a variety of conditions which can cause this time interval to be longer.  Once attribution information has been retrieved, the result is cached locally.  If the KochavaTrackerDelegate instance method tracker(_:didRetrieveAttributionDictionary:) is implemented, it will then also be called.  The attribution information is passed as a parameter.
  */
 extern NSString * _Nonnull const kKVAParamRetrieveAttributionBoolKey;
 
@@ -254,9 +253,9 @@ extern NSString * _Nonnull const kKVAParamRetrieveAttributionBoolKey;
 /*!
  @constant kKVAParamStorageIdStringKey
  
- @brief A constant to use for the key when passing the parameter to the tracker to set the storage id string.
+ @brief A constant to be used as a key in a key/value pair, where the corresponding value is a storage identifier (String).
  
- @discussion The corresponding value should be a string.  This parameter should be omitted (nil) unless you are making use of multiple instances of KochavaTracker.
+ @discussion The corresponding value should be a string containing a storage identifier.  The default value is nil.  Typically this key does not need to be configured, and the tracker will operate within a default (unqualified) storage location.  However, if multiple trackers are desired then you must specify a different storage identification string for each so that they can maintain persisted data independently.  Typically one tracker is sufficient.  One example use-case for having multiple trackers is when there are two different companies developing a product jointly, such as when a software development house develops an app under contract for an established brand.  Each organization may want independent control of their own analytics, reporting to different Kochava Accounts.  The value you provide will be appended to the names of keys stored within NSUserDefaults standard user defaults, so it should be a simple string and not too verbose.  Examples: “Developer”, “Principal”, etc.
  */
 extern NSString * _Nonnull const kKVAParamStorageIdStringKey;
 
@@ -353,23 +352,15 @@ extern NSString * _Nonnull const kKVAMessagesAppViewControllerDidResignActiveNot
 /*!
  @class KochavaTracker
  
- @brief Allows the app developer to collect unique advertising information from the user for the purpose of measuring ad campaign and user performance.
+ @brief The class KochavaTracker provides an interface between a host application and Kochava’s Attribution and Analytics Servers.  A tracker manages the exchange of data between these two entities, along with the associated tasks and network transactions.
+
+ @discussion The class KochavaTracker is the main interface for the KochavaTracker SDK.  If you have not already integrated a KochavaTracker SDK into your project, refer to our KochavaTracker iOS SDK support documentation.
  
- @discussion Customers use information collected from end users on The Kochava Platform to view reports and data to optimize their advertising campaigns. Customers may also use  the information they collect on The Kochava Platform for the following purposes, which include, but are not limited to:
+ You rarely create instances of the KochavaTracker class.  Instead, you configure a provided shared instance using the designated configuration instance method configure(withParametersDictionary:delegate:).
  
- • Measuring the performance of ad campaigns (for example, by comparing the lifetime value of a user against the expenses required to obtain that user);
+ From there, the tracker proceeds to initialize immediately and perform its various tasks.  This is typically done during the earliest phases of the host’s life-cycle, so that installation attribution can be quickly established and post-install events may immediately begin to be queued.
  
- • Measuring the value of particular end users;
- 
- • Measuring the performance of various Partners, including ad networks and publishers;
- 
- • Creating customized performance reports (for example, how well a particular advertisement is performing in a particular geographic region);
- 
- • Determining when end users respond to ads; and
- 
- • Device attribution.
- 
- (lib Kochava)
+ You may alternately create an instance of the KochavaTracker class.  If you do, it is your responsibility to maintain a strong reference.  And if you create multiple instances, it is your responsibility to configure each with a unique storage identifier.
  
  @author Kochava, Inc.
  
@@ -591,41 +582,6 @@ extern NSString * _Nonnull const kKVAMessagesAppViewControllerDidResignActiveNot
 
 
 /*!
- @method - handleWatchEvents
- 
- @brief A method to tell the server that an Apple Watch has been used with this app.
- 
- @discussion If you have a unique identifier to associate with the Apple Watch, you should instead call handleWatchEventsWithWatchIdString:.
- */
-- (void)handleWatchEvents;
-
-
-
-/*!
- @method - handleWatchEventsWithWatchIdString:
- 
- @brief A method to tell the server that a specific, identifiable Apple Watch has been used with this app.
- 
- @param watchIdString The name or identifier of watch used with the app.
- */
-- (void)handleWatchEventsWithWatchIdString:(nullable NSString *)watchIdString;
-
-
-
-/*!
- @method - sendWatchEventWithNameString:infoString:
- 
- @brief A method to queue an Apple Watch event to be sent to server.
- 
- @param nameString String containing event title or key of key/value pair.
- 
- @param infoString String containing event value or value of key/value pair.  Value may be an unnested (single dimensional) dictionary converted to a JSON formatted string.
- */
-- (void)sendWatchEventWithNameString:(nonnull NSString *)nameString infoString:(nullable NSString *)infoString;
-
-
-
-/*!
  @method - sdkVersionString
  
  @brief A method to return the sdk version string.
@@ -663,164 +619,26 @@ extern NSString * _Nonnull const kKVAMessagesAppViewControllerDidResignActiveNot
 
 
 /*!
- @brief An initializer for a Kochava Tracker (Constructor).
+ @method - handleWatchEvents
  
- @discussion This method has been deprecated and is scheduled to be permanently removed in v4.0 of this SDK.  Please initialize a tracker either using the shared, or else using initWithParametersDictionary:delegate:.  In Swift: init(parametersDictionary:delegate:)
+ @brief A method to tell the server that an Apple Watch has been used with this app.
+
+ @discussion This method has been deprecated and is scheduled to be permanently removed in v4.0 of this SDK.  Please instead use method sendEvent:.  In Swift: func send(KochavaEvent).  Create an instance of class KochavaEvent and indicate that it originated from an Apple Watch by setting property appleWatchBool to true.  See also property appleWatchIdString.
  */
-- (nullable id)initKochavaWithParams:(nonnull NSDictionary *)parametersDictionary KOCHAVA_DEPRECATED("Please initialize a tracker either using the shared, or else using initWithParametersDictionary:delegate:.  In Swift: init(parametersDictionary:delegate:)");
+- (void)handleWatchEvents KOCHAVA_DEPRECATED("Please instead use method sendEvent:.  In Swift: func send(KochavaEvent).  Create an instance of class KochavaEvent and indicate that it originated from an Apple Watch by setting property appleWatchBool to true.  See also property appleWatchIdString.");
 
 
 
 /*!
- @method - identityLinkEvent:
- 
- @brief A method to queue an Identity Link event to be sent to server.
- 
- @param dictionary A dictionary containing key/value pairs to be associated with the app install.
- 
- @discussion This method has been deprecated and is scheduled to be permanently removed in v4.0 of this SDK.  Please instead use sendIdentityLinkWithDictionary:.  In Swift: sendIdentityLink(with:)
- */
-- (void)identityLinkEvent:(nonnull NSDictionary *)dictionary KOCHAVA_DEPRECATED("Please instead use sendIdentityLinkWithDictionary:.  In Swift: sendIdentityLink(with:)");
-
-
-
-/*!
- @method - trackEvent:value:
- 
- @brief A method to queue an event with custom parameters to be sent to server.
- 
- @param titleString String containing event title or key of key/value pair.
- 
- @param valueString String containing event value or value of key/value pair.  Value may be an unnested (single dimensional) dictionary converted to a JSON formatted string.
- 
- @discussion This method has been deprecated and is scheduled to be permanently removed in v4.0 of this SDK.  Please instead use sendEventWithNameString:infoString:.  In Swift: sendEvent(withNameString:infoString:)
- */
-- (void)trackEvent:(nonnull NSString *)titleString value:(nullable NSString *)valueString KOCHAVA_DEPRECATED("Please instead use sendEventWithNameString:infoString:.  In Swift: sendEvent(withNameString:infoString:)");
-
-
-
-/*!
- @method - trackEvent:withValue:andReceipt:
- 
- @brief A method to queue an event with a receipt to be sent to server.
- 
- @param titleString String containing event title or key of key/value pair.
- 
- @param valueString String containing event value or value of key/value pair.  Value may be an unnested (single dimensional) dictionary converted to a JSON formatted string.
- 
- @param appStoreReceiptBase64EncodedString String containing an App Store base64 encoded receipt.
- 
- @discussion This method has been deprecated and is scheduled to be permanently removed in v4.0 of this SDK.  Please instead use sendEventWithNameString:infoString:appStoreReceiptBase64EncodedString.  In Swift: sendEvent(withNameString:infoString:appStoreReceiptBase64EncodedString:)
- */
-- (void)trackEvent:(nonnull NSString *)titleString withValue:(nullable NSString *)valueString andReceipt:(nonnull NSString *)appStoreReceiptBase64EncodedString KOCHAVA_DEPRECATED("Please instead use sendEventWithNameString:infoString:appStoreReceiptBase64EncodedString.  In Swift: sendEvent(withNameString:infoString:appStoreReceiptBase64EncodedString:)");
-
-
-
-/*!
- @method - setLimitAdTracking:
- 
- @brief A method to limit ad tracking at the application level.
- 
- @discussion This feature is related to the Limit Ad Tracking feature which is typically found on an Apple device under Settings, Privacy, Advertising.  In the same way that you can limit ad tracking through that setting, this feature provides a second and independent means for the host app to limit ad tracking by asking the user directly.  A value of NO (false) from either feature (this or Apple's) will result in the limiting of ad tracking.
- 
- @param limitAdTrackingBool A boolean toggling app level limit ad tracking on (YES) or off (NO).
- 
- @discussion This method has been deprecated and is scheduled to be permanently removed in v4.0 of this SDK.  Please instead use setAppLimitAdTrackingBool:
- */
-- (void)setLimitAdTracking:(BOOL)limitAdTrackingBool KOCHAVA_DEPRECATED("Please instead use setAppLimitAdTrackingBool:");
-
-
-
-/*!
- @method - sendDeepLink:sourceApplication:
- 
- @brief A method to queue a deep-link and its associated data to be sent to server.
- 
- @param url The url received by the openURL application delegate method.
- 
- @param sourceApplication The sourceApplication string received by the openURL application delegate method.
- 
- @discussion This method has been deprecated and is scheduled to be permanently removed in v4.0 of this SDK.  Please instead use sendDeepLinkWithOpenURL:sourceApplicationString:.  In Swift: sendDeepLink(withOpen:sourceApplicationString:)
- */
-- (void)sendDeepLink:(nullable NSURL *)url sourceApplication:(nullable NSString *)sourceApplication KOCHAVA_DEPRECATED("Please instead use sendDeepLinkWithOpenURL:sourceApplicationString:.  In Swift: sendDeepLink(withOpen:sourceApplicationString:)");
-
-
-
-/*!
- @method - getKochavaDeviceId
- 
- @brief A method to return the device ID generated when the tracker was initialized.
- 
- @discussion This method has been deprecated and is scheduled to be permanently removed in v4.0 of this SDK.  Please instead use deviceIdString.
- */
-- (nullable NSString *)getKochavaDeviceId KOCHAVA_DEPRECATED("Please instead use deviceIdString");
-
-
-
-/*!
- @method - retrieveAttribution
- 
- @brief A method to return the attribution information previously retrieved from the server (if any).
- 
- @discussion The use of this method assumes that the tracker was previously requested to retrieve attribution during its configuration.  It is intended that this information be passed automatically back to the parent through delegation.  This method can be used to re-retrieve the same information, but if it is called before attribution information has been retrieved then the result will be nil.
- 
- This method has been deprecated and is scheduled to be permanently removed in v4.0 of this SDK.  Please instead use attributionDictionary.
- 
- @return a dictionary containing attribution information (or nil).
- */
-- (nullable id)retrieveAttribution KOCHAVA_DEPRECATED("Please instead use attributionDictionary");
-
-
-
-/*!
- @method - handleWatchEvents:
+ @method - handleWatchEventsWithWatchIdString:
  
  @brief A method to tell the server that a specific, identifiable Apple Watch has been used with this app.
  
  @param watchIdString The name or identifier of watch used with the app.
- 
- @discussion This method has been deprecated and is scheduled to be permanently removed in v4.0 of this SDK.  Please instead use handleWatchEventsWithWatchIdString:
+
+ @discussion This method has been deprecated and is scheduled to be permanently removed in v4.0 of this SDK.  Please instead use method sendEvent:.  In Swift: func send(KochavaEvent).  Create an instance of class KochavaEvent and indicate that it originated from an Apple Watch by setting property appleWatchBool to true.  See also property appleWatchIdString.
  */
-- (void)handleWatchEvents:(nullable NSString *)watchIdString KOCHAVA_DEPRECATED("Please instead use handleWatchEventsWithWatchIdString:");
-
-
-
-/*!
- @method - trackWatchEvent:value:
- 
- @brief A method to queue an Apple Watch event to be sent to server.
- 
- @param titleString String containing event title or key of key/value pair.
- 
- @param valueString String containing event value or value of key/value pair.  Value may be an unnested (single dimensional) dictionary converted to a JSON formatted string.
- 
- @discussion This method has been deprecated and is scheduled to be permanently removed in v4.0 of this SDK.  Please instead use sendWatchEventWithNameString:infoString:.  In Swift: sendWatchEvent(withNameString:infoString:)
- */
-- (void)trackWatchEvent:(nonnull NSString *)titleString valueString:(nullable NSString *)valueString KOCHAVA_DEPRECATED("Please instead use sendWatchEventWithNameString:infoString:.  In Swift: sendWatchEvent(withNameString:infoString:)");
-
-
-
-- (void)trackEvent:(nonnull NSString *)titleString :(nullable NSString *)valueString
-KOCHAVA_DEPRECATED("Please instead use sendEventWithNameString:infoString:.  In Swift: sendEvent(withNameString:infoString:)");
-
-- (void)sendDeepLink:(nullable NSURL *)url :(nullable NSString *)sourceApplication
-KOCHAVA_DEPRECATED("Please instead use sendDeepLinkWithOpenURL:sourceApplicationString:.  In Swift: sendDeepLink(withOpen:sourceApplicationString:)");
-
-- (void)trackWatchEvent:(nonnull NSString *)titleString :(nullable NSString *)valueString
-KOCHAVA_DEPRECATED("Please instead use sendWatchEventWithNameString:infoString:.  In Swift: sendWatchEvent(withNameString:infoString:)");
-
-
-
-/*!
- @method - sendEventWithEventStandardParameters:
- 
- @brief A method to queue an event with standardized parameters to be sent to the server.
- 
- @param eventStandardParameters EventStandardParameters configured with the values you want to associate with the event.
-
- @discussion This method has been deprecated and is scheduled to be permanently removed in v4.0 of this SDK.  Please instead use sendEvent:.  In Swift: send(_ event:)
- */
-- (void)sendEventWithEventStandardParameters:(nonnull KochavaEvent *)eventStandardParameters KOCHAVA_DEPRECATED("The class EventStandardParameters has been renamed to KochavaEvent.  Please instead use sendEvent: , and also rename the class EventStandardParameters to KochavaEvent wherever you have used it.");
+- (void)handleWatchEventsWithWatchIdString:(nullable NSString *)watchIdString KOCHAVA_DEPRECATED("Please instead use method sendEvent:.  In Swift: func send(KochavaEvent).  Create an instance of class KochavaEvent and indicate that it originated from an Apple Watch by setting property appleWatchBool to true.  See also property appleWatchIdString.");
 
 
 
@@ -834,10 +652,25 @@ KOCHAVA_DEPRECATED("Please instead use sendWatchEventWithNameString:infoString:.
  @param infoString String containing event value or value of key/value pair.  It may be an unnested (single dimensional) dictionary converted to a JSON formatted string.
  
  @param appStoreReceiptBase64EncodedString String containing an App Store base64 encoded receipt.
-
- @discussion This method has been deprecated and is scheduled to be permanently removed in v4.0 of this SDK.  Please instead use sendEvent:.  In Swift: send(_ event:)
+ 
+ @discussion This method has been deprecated and is scheduled to be permanently removed in v4.0 of this SDK.  Please instead use method sendEvent:.  In Swift: func send(KochavaEvent).  Create an instance of class KochavaEvent and pass the appStoreReceiptBase64EncodedString using the standard parameter.  You may use KochavaEventTypeEnumPurchase, and set any of the other applicable standard parameters.
  */
-- (void)sendEventWithNameString:(nonnull NSString *)nameString infoString:(nullable NSString *)infoString appStoreReceiptBase64EncodedString:(nonnull NSString *)appStoreReceiptBase64EncodedString KOCHAVA_DEPRECATED("Please instead use sendEvent:.  In Swift: send(_ event:).  Create a KochavaEvent and pass the appStoreReceiptBase64EncodedString using the standard parameter.  You may use KochavaEventTypeEnumPurchase, and set any of the other applicable standard parameters.");
+- (void)sendEventWithNameString:(nonnull NSString *)nameString infoString:(nullable NSString *)infoString appStoreReceiptBase64EncodedString:(nonnull NSString *)appStoreReceiptBase64EncodedString KOCHAVA_DEPRECATED("Please instead use method sendEvent:.  In Swift: func send(KochavaEvent).  Create an instance of class KochavaEvent and pass the appStoreReceiptBase64EncodedString using the standard parameter.  You may use KochavaEventTypeEnumPurchase, and set any of the other applicable standard parameters.");
+
+
+
+/*!
+ @method - sendWatchEventWithNameString:infoString:
+ 
+ @brief A method to queue an Apple Watch event to be sent to server.
+ 
+ @param nameString String containing event title or key of key/value pair.
+ 
+ @param infoString String containing event value or value of key/value pair.  Value may be an unnested (single dimensional) dictionary converted to a JSON formatted string.
+
+ @discussion This method has been deprecated and is scheduled to be permanently removed in v4.0 of this SDK.  Please instead use method sendEvent:.  In Swift: func send(KochavaEvent).  Create an instance of class KochavaEvent and indicate that it originated from an Apple Watch by setting property appleWatchBool to true.  See also property appleWatchIdString.
+ */
+- (void)sendWatchEventWithNameString:(nonnull NSString *)nameString infoString:(nullable NSString *)infoString KOCHAVA_DEPRECATED("Please instead use method sendEvent:.  In Swift: func send(KochavaEvent).  Create an instance of class KochavaEvent and indicate that it originated from an Apple Watch by setting property appleWatchBool to true.  See also property appleWatchIdString.");
 
 
 
