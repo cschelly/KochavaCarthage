@@ -1,10 +1,15 @@
 //
 //  KVAContext.h
-//  KochavaTracker
+//  KochavaCore
 //
 //  Created by John Bushnell on 3/19/18.
-//  Copyright © 2017 - 2018 Kochava, Inc. All rights reserved.
+//  Copyright © 2017 - 2020 Kochava, Inc.  All rights reserved.
 //
+
+
+
+#ifndef KVAContext_h
+#define KVAContext_h
 
 
 
@@ -13,7 +18,6 @@
 
 
 #import "KVAAsForContextObjectProtocol.h"
-
 #import "KVAFromObjectProtocol.h"
 
 
@@ -37,7 +41,7 @@
  
  @author John Bushnell
  
- @copyright 2018 Kochava, Inc.
+ @copyright 2018 - 2020 Kochava, Inc.
  */
 @interface KVAContext : NSObject <KVAAsForContextObjectProtocol, KVAFromObjectProtocol>
 
@@ -158,6 +162,10 @@
 
 
 @end
+
+
+
+#endif
 
 
 

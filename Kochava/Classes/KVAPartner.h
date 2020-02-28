@@ -1,10 +1,15 @@
 //
 //  KVAPartner.h
-//  KochavaTracker
+//  KochavaCore
 //
 //  Created by John Bushnell on 3/30/18.
-//  Copyright © 2018 Kochava. All rights reserved.
+//  Copyright © 2018 - 2020 Kochava, Inc.  All rights reserved.
 //
+
+
+
+#ifndef KVAPartner_h
+#define KVAPartner_h
 
 
 
@@ -13,7 +18,7 @@
 
 
 #import "KVAAsForContextObjectProtocol.h"
-
+#import "KVAConfigureWithObjectProtocol.h"
 #import "KVAFromObjectProtocol.h"
 
 
@@ -41,9 +46,9 @@
  
  @author John Bushnell
  
- @copyright 2018 Kochava, Inc.
+ @copyright 2018 - 2020 Kochava, Inc.
  */
-@interface KVAPartner : NSObject <KVAFromObjectProtocol, KVAAsForContextObjectProtocol>
+@interface KVAPartner : NSObject <KVAAsForContextObjectProtocol, KVAConfigureWithObjectProtocol, KVAFromObjectProtocol>
 
 
 
@@ -60,7 +65,7 @@
  
  Example: "Used to do X and Y."
  */
-@property (strong, nonatomic, nullable, readonly) NSString *descriptionString;
+@property (strong, atomic, nullable, readonly) NSString *descriptionString;
 
 
 
@@ -73,7 +78,7 @@
  
  Example: "Kochava"
  */
-@property (strong, nonatomic, nullable, readonly) NSString *nameString;
+@property (strong, atomic, nullable, readonly) NSString *nameString;
 
 
 
@@ -88,7 +93,7 @@
  
  @discussion A value of true indicates consent was granted.  A value of false indicates consent was denied.  A value of nil exists when the user has not provided a response.
  */
-@property (strong, nonatomic, nullable, readonly) NSNumber *responseBoolNumber;
+@property (strong, atomic, nullable, readonly) NSNumber *responseBoolNumber;
 
 
 
@@ -99,7 +104,7 @@
  
  @discussion This value is nil when the user has not provided a response.
  */
-@property (strong, nonatomic, nullable, readonly) NSDate *responseDate;
+@property (strong, atomic, nullable, readonly) NSDate *responseDate;
 
 
 
@@ -151,7 +156,7 @@
  
  @param date The date attributed to the response.
  */
-- (void)didPromptWithDidGrantBoolNumber:(nullable NSNumber *)didGrantBoolNumber date:(nonnull NSDate *)date;
+- (void)didPromptWithDidGrantBoolNumber:(nullable NSNumber *)didGrantBoolNumber date:(nonnull NSDate *)date NS_SWIFT_NAME(didPrompt(didGrantBoolNumber:date:));
 
 
 
@@ -222,21 +227,6 @@
 
 
 /*!
- @method - updateFrom:context:
- 
- @brief Updates the receiver from another instance.
- 
- @discussion Internal.
- 
- @param fromObject An object from which to update the instance.  This is expected to be a native instance, or else an object which can resolve to a native instance.
- 
- @param context Optional.  The context.
- */
-- (void)updateFrom:(nullable id)fromObject context:(nullable KVAContext *)context;
-
-
-
-/*!
  @method - willPrompt
  
  @brief Called to indicate that the user will be prompted for consent.
@@ -265,6 +255,10 @@
 
 
 @end
+
+
+
+#endif
 
 
 

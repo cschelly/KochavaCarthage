@@ -1,10 +1,15 @@
 //
 //  KVAConsent.h
-//  KochavaTracker
+//  KochavaCore
 //
 //  Created by John Bushnell on 3/30/18.
-//  Copyright © 2018 Kochava. All rights reserved.
+//  Copyright © 2018 - 2020 Kochava, Inc.  All rights reserved.
 //
+
+
+
+#ifndef KVAConsent_h
+#define KVAConsent_h
 
 
 
@@ -13,7 +18,7 @@
 
 
 #import "KVAAsForContextObjectProtocol.h"
-
+#import "KVAConfigureWithObjectProtocol.h"
 #import "KVAFromObjectProtocol.h"
 
 
@@ -41,9 +46,9 @@
  
  @author John Bushnell
  
- @copyright 2018 Kochava, Inc.
+ @copyright 2018 - 2020 Kochava, Inc.
  */
-@interface KVAConsent : NSObject <NSCopying, KVAFromObjectProtocol, KVAAsForContextObjectProtocol>
+@interface KVAConsent : NSObject <NSCopying, KVAAsForContextObjectProtocol, KVAConfigureWithObjectProtocol, KVAFromObjectProtocol>
 
 
 
@@ -75,7 +80,7 @@ typedef void (^ KVAConsentDidUpdateBlock) (KVAConsent * _Nonnull consent);
  
  Sample Value: "We share information with various partners... we'd like your consent..."
  */
-@property (strong, nonatomic, nullable, readonly) NSString *descriptionString;
+@property (strong, atomic, nullable, readonly) NSString *descriptionString;
 
 
 
@@ -121,16 +126,15 @@ typedef void (^ KVAConsentDidUpdateBlock) (KVAConsent * _Nonnull consent);
  
  Swift example:
  @code
- if (consent.partnerArray != nil)
- {
-     for partner in consent.partnerArray! as! [KVAPartner]
-     {
-         print("partner name = \(partner.nameString!)")
+ let consent = KochavaTracker.shared.consent
+ if let partnerArray = consent.partnerArray {
+     for partner in partnerArray {
+         print("do something with the partner... partner.nameString=\(String(describing: partner.nameString))")
      }
  }
  @endcode
  */
-@property (strong, nonatomic, nullable, readonly) NSMutableArray<KVAPartner *> *partnerArray;
+@property (strong, nonatomic, nullable, readonly) NSArray<KVAPartner *> *partnerArray;
 
 
 
@@ -178,7 +182,7 @@ typedef void (^ KVAConsentDidUpdateBlock) (KVAConsent * _Nonnull consent);
  
  @discussion This includes both positive and negative responses.  This value is nil when the user has not provided a response.
  */
-@property (strong, nonatomic, nullable, readonly) NSDate *responseDate;
+@property (strong, atomic, nullable, readonly) NSDate *responseDate;
 
 
 
@@ -360,6 +364,10 @@ typedef void (^ KVAConsentDidUpdateBlock) (KVAConsent * _Nonnull consent);
 
 
 @end
+
+
+
+#endif
 
 
 
