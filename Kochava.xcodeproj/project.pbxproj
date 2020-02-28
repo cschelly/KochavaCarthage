@@ -7,27 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CFBD46E224097C0F00910583 /* KVAConfigureWithObjectProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = CFBD46D224097C0E00910583 /* KVAConfigureWithObjectProtocol.h */; };
-		CFBD46E324097C0F00910583 /* KVALogLevel.h in Headers */ = {isa = PBXBuildFile; fileRef = CFBD46D324097C0E00910583 /* KVALogLevel.h */; };
-		CFBD46E424097C0F00910583 /* KochavaEvent.h in Headers */ = {isa = PBXBuildFile; fileRef = CFBD46D424097C0E00910583 /* KochavaEvent.h */; };
-		CFBD46E524097C0F00910583 /* KVASharedPropertyProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = CFBD46D524097C0E00910583 /* KVASharedPropertyProvider.h */; };
-		CFBD46E624097C0F00910583 /* KVAProduct.h in Headers */ = {isa = PBXBuildFile; fileRef = CFBD46D624097C0E00910583 /* KVAProduct.h */; };
-		CFBD46E724097C0F00910583 /* KVAContext.h in Headers */ = {isa = PBXBuildFile; fileRef = CFBD46D724097C0E00910583 /* KVAContext.h */; };
-		CFBD46E824097C0F00910583 /* KVASystem.h in Headers */ = {isa = PBXBuildFile; fileRef = CFBD46D824097C0E00910583 /* KVASystem.h */; };
-		CFBD46E924097C0F00910583 /* KVAPartner.h in Headers */ = {isa = PBXBuildFile; fileRef = CFBD46D924097C0E00910583 /* KVAPartner.h */; };
-		CFBD46EA24097C0F00910583 /* KVAConsent.h in Headers */ = {isa = PBXBuildFile; fileRef = CFBD46DA24097C0E00910583 /* KVAConsent.h */; };
-		CFBD46EB24097C0F00910583 /* KVAAsForContextObjectProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = CFBD46DB24097C0E00910583 /* KVAAsForContextObjectProtocol.h */; };
-		CFBD46EC24097C0F00910583 /* KVASendEventFuncProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = CFBD46DC24097C0E00910583 /* KVASendEventFuncProvider.h */; };
-		CFBD46EE24097C0F00910583 /* KVACoreProduct.h in Headers */ = {isa = PBXBuildFile; fileRef = CFBD46DE24097C0F00910583 /* KVACoreProduct.h */; };
-		CFBD46EF24097C0F00910583 /* KochavaCore.h in Headers */ = {isa = PBXBuildFile; fileRef = CFBD46DF24097C0F00910583 /* KochavaCore.h */; };
-		CFBD46F024097C0F00910583 /* KVAFromObjectProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = CFBD46E024097C0F00910583 /* KVAFromObjectProtocol.h */; };
-		CFBD46F124097C0F00910583 /* KVALog.h in Headers */ = {isa = PBXBuildFile; fileRef = CFBD46E124097C0F00910583 /* KVALog.h */; };
+		CFBD46E224097C0F00910583 /* KVAConfigureWithObjectProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = CFBD46D224097C0E00910583 /* KVAConfigureWithObjectProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CFBD46E324097C0F00910583 /* KVALogLevel.h in Headers */ = {isa = PBXBuildFile; fileRef = CFBD46D324097C0E00910583 /* KVALogLevel.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CFBD46E424097C0F00910583 /* KochavaEvent.h in Headers */ = {isa = PBXBuildFile; fileRef = CFBD46D424097C0E00910583 /* KochavaEvent.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CFBD46E524097C0F00910583 /* KVASharedPropertyProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = CFBD46D524097C0E00910583 /* KVASharedPropertyProvider.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CFBD46E624097C0F00910583 /* KVAProduct.h in Headers */ = {isa = PBXBuildFile; fileRef = CFBD46D624097C0E00910583 /* KVAProduct.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CFBD46E724097C0F00910583 /* KVAContext.h in Headers */ = {isa = PBXBuildFile; fileRef = CFBD46D724097C0E00910583 /* KVAContext.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CFBD46E824097C0F00910583 /* KVASystem.h in Headers */ = {isa = PBXBuildFile; fileRef = CFBD46D824097C0E00910583 /* KVASystem.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CFBD46E924097C0F00910583 /* KVAPartner.h in Headers */ = {isa = PBXBuildFile; fileRef = CFBD46D924097C0E00910583 /* KVAPartner.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CFBD46EA24097C0F00910583 /* KVAConsent.h in Headers */ = {isa = PBXBuildFile; fileRef = CFBD46DA24097C0E00910583 /* KVAConsent.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CFBD46EB24097C0F00910583 /* KVAAsForContextObjectProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = CFBD46DB24097C0E00910583 /* KVAAsForContextObjectProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CFBD46EC24097C0F00910583 /* KVASendEventFuncProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = CFBD46DC24097C0E00910583 /* KVASendEventFuncProvider.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CFBD46EE24097C0F00910583 /* KVACoreProduct.h in Headers */ = {isa = PBXBuildFile; fileRef = CFBD46DE24097C0F00910583 /* KVACoreProduct.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CFBD46EF24097C0F00910583 /* KochavaCore.h in Headers */ = {isa = PBXBuildFile; fileRef = CFBD46DF24097C0F00910583 /* KochavaCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CFBD46F024097C0F00910583 /* KVAFromObjectProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = CFBD46E024097C0F00910583 /* KVAFromObjectProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CFBD46F124097C0F00910583 /* KVALog.h in Headers */ = {isa = PBXBuildFile; fileRef = CFBD46E124097C0F00910583 /* KVALog.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CFBD46F324097C2B00910583 /* libKochavaCoreiOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CFBD46F224097C2B00910583 /* libKochavaCoreiOS.a */; };
 		CFBD46F724097C4500910583 /* libKochavaTrackeriOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CFBD46F624097C4500910583 /* libKochavaTrackeriOS.a */; };
-		CFBD46FC24097C5200910583 /* KVADeeplink.h in Headers */ = {isa = PBXBuildFile; fileRef = CFBD46F824097C5100910583 /* KVADeeplink.h */; };
-		CFBD46FD24097C5200910583 /* KochavaTracker.h in Headers */ = {isa = PBXBuildFile; fileRef = CFBD46F924097C5100910583 /* KochavaTracker.h */; };
-		CFBD46FE24097C5200910583 /* KVATracker.h in Headers */ = {isa = PBXBuildFile; fileRef = CFBD46FA24097C5200910583 /* KVATracker.h */; };
-		CFBD46FF24097C5200910583 /* KVATrackerProduct.h in Headers */ = {isa = PBXBuildFile; fileRef = CFBD46FB24097C5200910583 /* KVATrackerProduct.h */; };
+		CFBD46FC24097C5200910583 /* KVADeeplink.h in Headers */ = {isa = PBXBuildFile; fileRef = CFBD46F824097C5100910583 /* KVADeeplink.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CFBD46FD24097C5200910583 /* KochavaTracker.h in Headers */ = {isa = PBXBuildFile; fileRef = CFBD46F924097C5100910583 /* KochavaTracker.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CFBD46FE24097C5200910583 /* KVATracker.h in Headers */ = {isa = PBXBuildFile; fileRef = CFBD46FA24097C5200910583 /* KVATracker.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CFBD46FF24097C5200910583 /* KVATrackerProduct.h in Headers */ = {isa = PBXBuildFile; fileRef = CFBD46FB24097C5200910583 /* KVATrackerProduct.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F3167E6B1DBA2AEF009D9A86 /* Kochava.h in Headers */ = {isa = PBXBuildFile; fileRef = F3167E691DBA2AEF009D9A86 /* Kochava.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F3167E731DBA2B61009D9A86 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3167E721DBA2B61009D9A86 /* UIKit.framework */; };
 		F3167E751DBA2B65009D9A86 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3167E741DBA2B65009D9A86 /* Foundation.framework */; };
